@@ -17,12 +17,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 
-<body>
-  <header></header>
+<body class="container">
+  <header>
+
+
+  </header>
   <main class="main">
     <div class="search-field">
       <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
+        <input id="input-field" class="search-field w-50" type="text">
+
         <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
           autocomplete="off" id="search-btn" onclick="loadProducts()">
           Search
@@ -30,12 +34,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-9 col-lg-9 col-sm-7">
+      <div class="row-cols-1 row-cols-md-3 g-4">
         <div id="all-products" class="">
           <h1></h1>
         </div>
       </div>
-      <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
+      <div class="row-cols-1 row-cols-md-3 g-4">
         <div class="cart" id="my-cart">
           <table class="table">
             <thead>
