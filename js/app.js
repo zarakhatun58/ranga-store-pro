@@ -27,7 +27,7 @@ const showProducts = (products) => {
       <p>Category: ${product.category}</p>
       <h5>Price: $ ${product.price}</h5>
       <h6>Total-Rating : ${count}   </h6>
-        <h6>Average-rating: ${rate} </h6> 
+        <p>Average-rating: ${rate} </p> 
         <h6> <i class="fas fa-star" id="star"></i></i>
     <i class="fas fa-star" id="star"></i>
     <i class="fas fa-star" id="star"></i>
