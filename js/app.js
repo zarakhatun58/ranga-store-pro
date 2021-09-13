@@ -33,10 +33,7 @@ const showProducts = (products) => {
     <i class="fas fa-star"></i>
     <i class="fas fa-star"></i>
     <i class="fas fa-star-half-alt"></i>
-
-    </h6>
-
-        
+    </h6>    
     <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-secondary">add to cart</button>
     <button id="details-btn" onclick='showDetails(${product.price},${rate})' class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button></div>
     `;
