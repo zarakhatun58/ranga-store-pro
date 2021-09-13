@@ -1,5 +1,7 @@
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
+
+  //console.log(url)
   fetch(url)
     .then((response) => response.json())
     //.then((data) => console.log(data));
@@ -11,7 +13,7 @@ loadProducts();
 const showProducts = (products) => {
   const allProducts = products.map((product) => product);
   for (const product of allProducts) {
-    const image = product.images;
+    const image = product.image;
     //  solve destructuring
     const { rate, count } = product.rating;
 
@@ -25,9 +27,15 @@ const showProducts = (products) => {
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
       <h4>Total-Rating : ${count}   </h4>
-        <h5>Average-rating: ${rate}</h5>
+        <h5>Average-rating: ${rate} </h5> 
+        <h6> <i class="fas fa-star" id="star"></i></i>
+    <i class="fas fa-star" id="star"></i>
+    <i class="fas fa-star" id="star"></i>
+    </h6>
+
+        
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" onclick='showDetails(${product.price},${rate})' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button></div>
+      <button id="details-btn" onclick='showDetails(${product.price},${rate})' class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -37,13 +45,18 @@ const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
 
+  console.log(price, typeof price)
+
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
+
+  updateTotal();
 };
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseInt(element);
+
   return converted;
 };
 
@@ -88,5 +101,14 @@ const updateTotal = () => {
 
 const showDetails = (price, rating) => {
   console.log(price, rating)
+
+  // document.getElementById("modal-body").innerHTML = ` <div class="p-4">
+  //   <p> Rating:${Array.from(Array(parseInt(rating)).keys()).map(
+  //   (r) => '<i class="bi bi-star-fill text-warning"></i>'
+  // )}</p>
+  //   <h2>Price: $ ${price}</h2></p>
+
+  // </div > `;
+
 
 }
