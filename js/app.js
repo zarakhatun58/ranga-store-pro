@@ -23,20 +23,20 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3>${product.title}</h3>
+      <h5>${product.title.slice(0, 30)}</h5>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
-      <h4>Total-Rating : ${count}   </h4>
-        <h5>Average-rating: ${rate} </h5> 
+      <h5>Price: $ ${product.price}</h5>
+      <h6>Total-Rating : ${count}   </h6>
+        <h6>Average-rating: ${rate} </h6> 
         <h6> <i class="fas fa-star" id="star"></i></i>
     <i class="fas fa-star" id="star"></i>
     <i class="fas fa-star" id="star"></i>
     </h6>
 
         
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" onclick='showDetails(${product.price},${rate})' class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button></div>
-      `;
+    <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-secondary">add to cart</button>
+    <button id="details-btn" onclick='showDetails(${product.price},${rate})' class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button></div>
+    `;
     document.getElementById("all-products").appendChild(div);
   }
 };
@@ -45,7 +45,7 @@ const addToCart = (id, price) => {
   count = count + 1;
   updatePrice("price", price);
 
-  console.log(price, typeof price)
+  //console.log(price, typeof price)
 
   updateTaxAndCharge();
   document.getElementById("total-Products").innerText = count;
@@ -64,7 +64,10 @@ const getInputValue = (id) => {
 const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
+
   const total = convertedOldPrice + convertPrice;
+  //console.log(total, typeof total)
+
   document.getElementById(id).innerText = Math.round(total);
 };
 
@@ -92,23 +95,32 @@ const updateTaxAndCharge = () => {
 
 //grandTotal update function
 const updateTotal = () => {
+  console.log(
+    getInputValue("price"),
+    getInputValue("delivery-charge"),
+    getInputValue("total-tax")
+  );
+
+
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  document.getElementById("total").innerText = grandTotal;
+  //console.log(grandTotal);
+
+  document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 
 
-const showDetails = (price, rating) => {
-  console.log(price, rating)
+// const showDetails = (price, rating) => {
+//   //console.log(price, rating)
 
-  // document.getElementById("modal-body").innerHTML = ` <div class="p-4">
-  //   <p> Rating:${Array.from(Array(parseInt(rating)).keys()).map(
-  //   (r) => '<i class="bi bi-star-fill text-warning"></i>'
-  // )}</p>
-  //   <h2>Price: $ ${price}</h2></p>
+//   document.getElementById("modal-body").innerHTML = ` <div class="p-4">
+//     <p> Rating:${Array.from(Array(parseInt(rating)).keys()).map(
+//     (r) => '<i class="bi bi-star-fill text-warning"></i>'
+//   )}</p>
+//     <h2>Price: $ ${price}</h2></p>
 
-  // </div > `;
+//   </div > `;
 
 
-}
+// }
