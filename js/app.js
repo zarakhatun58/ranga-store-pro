@@ -1,3 +1,4 @@
+
 const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
 
@@ -26,11 +27,13 @@ const showProducts = (products) => {
       <h5>${product.title.slice(0, 30)}</h5>
       <p>Category: ${product.category}</p>
       <h5>Price: $ ${product.price}</h5>
-      <h6>Total-Rating : ${count}   </h6>
-        <p>Average-rating: ${rate} </p> 
-        <h6> <i class="fas fa-star" id="star"></i></i>
-    <i class="fas fa-star" id="star"></i>
-    <i class="fas fa-star" id="star"></i>
+      <h6>Total-Rating : ${product.rating.count}  </h6>
+        <p>Average-rating: ${product.rating.rate} </p> 
+        <h6> <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star-half-alt"></i>
+
     </h6>
 
         
@@ -55,7 +58,7 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  const converted = parseInt(element);
+  const converted = parseFloat(element);
 
   return converted;
 };
@@ -68,12 +71,14 @@ const updatePrice = (id, value) => {
   const total = convertedOldPrice + convertPrice;
   //console.log(total, typeof total)
 
-  document.getElementById(id).innerText = Math.round(total);
+  // document.getElementById(id).innerText = Math.round(total);
+  document.getElementById(id).innerText = parseFloat(total.toFixed(2));
 };
 
 // set innerText function
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = Math.round(value);
+  document.getElementById(id).innerText = parseFloat(value.toFixed(2));
+
 };
 
 // update delivery charge and total Tax
@@ -99,28 +104,18 @@ const updateTotal = () => {
     getInputValue("price"),
     getInputValue("delivery-charge"),
     getInputValue("total-tax")
+
+
   );
 
 
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  //console.log(grandTotal);
+  console.log(grandTotal);
 
-  document.getElementById("total").innerText = grandTotal.toFixed(2);
+  document.getElementById("total").innerText = (grandTotal.toFixed(2));
 };
 
 
-// const showDetails = (price, rating) => {
-//   //console.log(price, rating)
 
-//   document.getElementById("modal-body").innerHTML = ` <div class="p-4">
-//     <p> Rating:${Array.from(Array(parseInt(rating)).keys()).map(
-//     (r) => '<i class="bi bi-star-fill text-warning"></i>'
-//   )}</p>
-//     <h2>Price: $ ${price}</h2></p>
-
-//   </div > `;
-
-
-// }

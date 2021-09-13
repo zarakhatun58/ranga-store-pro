@@ -1,12 +1,12 @@
 body {
   overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
-  background-color:#a7aac0e3;
+  background-color:#b8bac9e3;
   
 }
 
 .search-box {
-  
+  padding-top: 10px;
   width: 50%;
   
   margin: auto;
@@ -48,13 +48,13 @@ body {
 }
 .cart {
   width: 350px;
-  /* border: 1px solid green; */
+  border: 1px solid green;
   padding: 10px;
   box-shadow: 10px 10px 20px gray;
   border-radius: 5px;
   margin-right: 30px;
   position: fixed;
-  background-color:rgb(171, 197, 123);
+  background-color:hsl(64, 38%, 85%);
 }
 .cart-main {
   padding-right: 30px;
@@ -66,7 +66,7 @@ body {
   }
   .cart {
     width: 300px;
-    /* border: 1px solid green; */
+    border: 1px solid green;
     padding: 10px;
     box-shadow: 10px 10px 20px gray;
     border-radius: 5px;
@@ -84,7 +84,8 @@ body {
   }
 }
 
-#star{
+.fas,
+.fa-star{
   
- color: orange;
+ color:orange;
 }
