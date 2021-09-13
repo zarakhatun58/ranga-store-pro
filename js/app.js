@@ -2,15 +2,19 @@ const loadProducts = () => {
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
+    //.then((data) => console.log(data));
     .then((data) => showProducts(data));
 };
 loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
-  const allProducts = products.map((pd) => pd);
+  const allProducts = products.map((product) => product);
   for (const product of allProducts) {
     const image = product.images;
+    //  solve destructuring
+    const { rate, count } = product.rating;
+
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
@@ -80,3 +84,9 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal;
 };
+
+
+const showDetails = (price, rating) => {
+  console.log(price, rating)
+
+}
