@@ -24,12 +24,12 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h5>${product.title.slice(0, 30)}</h5>
-      <p>Category: ${product.category}</p>
-      <h5>Price: $ ${product.price}</h5>
-      <h6>Total-Rating : ${product.rating.count}  </h6>
+      <h5 class="fw-bold">${product.title.slice(0, 30)}</h5>
+      <p class="fw-bold"" style="color:coral;">Category: ${product.category}</p>
+      <h5 class="fw-bold">Price: $ ${product.price}</h5>
+      <h6 class="fw-bold">Total-Rating : ${product.rating.count}  </h6>
         <p>Average-rating: ${product.rating.rate} </p> 
-        <h6> <i class="fas fa-star"></i>
+           <h6> <i class="fas fa-star"></i>
     <i class="fas fa-star"></i>
     <i class="fas fa-star"></i>
     <i class="fas fa-star-half-alt"></i>
